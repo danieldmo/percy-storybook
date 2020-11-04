@@ -44,9 +44,10 @@ export default async function getStories(options = {}) {
   // Some CI platforms including Travis requires Chrome to be launched without the sandbox
   // See https://github.com/GoogleChrome/puppeteer/blob/master/docs/troubleshooting.md#running-puppeteer-on-travis-ci
   // See https://docs.travis-ci.com/user/chrome#Sandboxing
-  if (os.platform() === 'linux') {
-    launchArgs.push('--no-sandbox');
-  }
+//   if (os.platform() === 'linux') {
+  console.log(os.platform());
+  launchArgs.push('--no-sandbox');
+//   }
 
   const browser = await puppeteer.launch({ headless: true, args: launchArgs });
   const page = await browser.newPage();
